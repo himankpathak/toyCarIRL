@@ -260,10 +260,14 @@ Update from Python 2 to 3:
 
 `2to3 -w *.py`
 
+`cd ..`
+
+In setup.py, comment the line
+`bdist.bdist.format_commands += ['msi']`
+
 Install it:
 
-`cd ..`
-`python3 setup.py install`
+`pip install .`
 
 Now go back to where you cloned `reinforcement-learning-car` and make sure everything worked with a quick `python3 learning.py`. If you see a screen come up with a little dot flying around the screen, you're ready to go!
 
