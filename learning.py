@@ -11,7 +11,7 @@ GAMMA = 0.9  # Forgetting.
 TUNING = False  # If False, just use arbitrary, pre-selected params.
 TRAIN_FRAMES = 100000 # to train for 100K frames in total
 
-def train_net(model, params, weights, path, trainFrames, i):
+def train_net(model, params, weights, path, trainFrames, i = 0):
 
     filename = params_to_filename(params)
 
@@ -77,7 +77,7 @@ def train_net(model, params, weights, path, trainFrames, i):
             history = LossHistory()
             model.fit(
                 X_train, y_train, batch_size=batchSize,
-                nb_epoch=1, verbose=0, callbacks=[history]
+                epochs=1, verbose=0, callbacks=[history]
             )
             loss_log.append(history.losses)
 
