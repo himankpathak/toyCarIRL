@@ -70,7 +70,7 @@ def plot_file(filename, type='loss'):
 
         # Plot it.
         plt.clf()  # Clear.
-        plt.title(f)
+        # plt.title('Loss')
         # The -50 removes an artificial drop at the end caused by the moving
         # average.
         if type == 'loss':
