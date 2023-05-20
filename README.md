@@ -232,42 +232,14 @@ After around 10-15 iterations the algorithm converges in all the 4 different cho
 
 If you really want to get into IRL, I would recommend that you actually try to teach the agent a new behavior (you might have to modify the environment for that, as the possible distinct behaviors for the current state set have already been exploited, well atleast according to me).
 
-### Install Pygame
+### Dependency installation
 
-Install Pygame's dependencies with:
+- Install with pip: `pip install pygame keras tensorflow numpy matplotlib`
 
-`sudo apt install mercurial libfreetype6-dev libsdl-dev libsdl-image1.2-dev libsdl-ttf2.0-dev libsmpeg-dev libportmidi-dev libavformat-dev libsdl-mixer1.2-dev libswscale-dev libjpeg-dev`
+- Install Pymunk (This is the physics engine used by the simulation. It just went through a pretty significant rewrite (v5) so you need to grab the older v4 version.)
+	- Unpack it with `tar zxvf pymunk-4.0.0.tar.gz`
+	- `cd pymunk-pymunk-4.0.0/` and install with `pip install .`
 
-Then install Pygame itself:
-
-`pip3 install hg+http://bitbucket.org/pygame/pygame`
-
-### Install Pymunk
-
-This is the physics engine used by the simulation. It just went through a pretty significant rewrite (v5) so you need to grab the older v4 version. v4 is written for Python 2 so there are a couple extra steps.
-
-Go back to your home or downloads and get Pymunk 4:
-
-`wget https://github.com/viblo/pymunk/archive/pymunk-4.0.0.tar.gz`
-
-Unpack it:
-
-`tar zxvf pymunk-4.0.0.tar.gz`
-
-Update from Python 2 to 3:
-
-`cd pymunk-pymukn-4.0.0/pymunk`
-
-`2to3 -w *.py`
-
-`cd ..`
-
-In setup.py, comment the line
-`bdist.bdist.format_commands += ['msi']`
-
-Install it:
-
-`pip install .`
 
 Now go back to where you cloned `reinforcement-learning-car` and make sure everything worked with a quick `python3 learning.py`. If you see a screen come up with a little dot flying around the screen, you're ready to go!
 
@@ -281,11 +253,15 @@ It can take anywhere from an hour to 36 hours to train a model, depending on the
 
 ## Playing
 
-Edit the `playing.py` file to change the path name for the model you want to load. Sorry about this, I know it should be a command line argument.
+There are already saved models in the repo.
+Run the `playing.py` with command line arguments.
+
+`python playing.py bumping 1 100000`
+`python playing.py brown 5 100000`
+`python playing.py yellow 100 100000`
+`python playing.py red 1 100000`
 
 Then, watch the car drive itself around the obstacles!
-
-`python3 playing.py`
 
 That's all there is to it.
 
